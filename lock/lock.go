@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -61,8 +62,23 @@ func HelloGoRouinte() {
 	wg.Wait()
 }
 
+// ------------ test------------------------
+func HelloTom() string {
+	return "Jerry"
+}
+
+func TestHelloTom(t *testing.T) {
+	output := HelloTom()
+	expectOutput := "Tom"
+	if output != expectOutput {
+		t.Errorf("expect : %s actual : %s", expectOutput, output)
+	}
+
+}
+
 // ----------------main主函数入口-------------------
 func main() {
 	//Add()
-	HelloGoRouinte()
+	//HelloGoRouinte()
+	TestHelloTom()
 }
